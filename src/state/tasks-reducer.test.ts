@@ -1,4 +1,4 @@
-import {TasksStateType} from "../App";
+import {TasksStateType} from "../AppWithRedux";
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./tasks-reducer";
 import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
 
@@ -22,7 +22,7 @@ test('correct task should be deleted from correct array', () => {
 
     expect(endState['todolistId1'].length).toBe(3);
     expect(endState['todolistId2'].length).toBe(2);
-    expect(endState['todolistId2'].every(t => t.id !== '2')).toBeTruthy();
+    expect(endState['todolistId2'].every((t: any) => t.id !== '2')).toBeTruthy();
 })
 
 test('task should be added to the specified todolist', () => {
